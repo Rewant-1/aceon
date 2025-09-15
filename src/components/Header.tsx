@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { ContactDialog } from "@/components/ContactDialog";
 import {
   Sheet,
   SheetContent,
@@ -27,17 +26,22 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-          <Link href="/about" className="text-accent font-medium text-sm lg:text-base hover:text-accent/80 transition-colors">
-            About
+          <Link href="/" className="text-[#F7F7F7] bg-[rgba(169,124,81,0.54)] px-4 py-2 rounded-lg font-normal text-base hover:bg-[rgba(169,124,81,0.70)] transition-colors font-[family-name:var(--font-inter)]">
+            Home
           </Link>
-          <Link href="/services" className="text-white font-medium text-sm lg:text-base hover:text-accent transition-colors">
+          <Link href="/services" className="text-white/90 font-normal text-base hover:text-accent transition-colors font-[family-name:var(--font-geist-sans)]">
             Services
           </Link>
-          <ContactDialog />
+          <Link href="/about" className="text-white/90 font-normal text-base hover:text-accent transition-colors font-[family-name:var(--font-geist-sans)]">
+            About
+          </Link>
+          <Link href="/contact" className="text-white/90 font-normal text-base hover:text-accent transition-colors font-[family-name:var(--font-geist-sans)]">
+            Contact
+          </Link>
         </nav>
 
         {/* Desktop CTA Button */}
-        <Button variant="outline" className="hidden md:block bg-transparent border-white text-white hover:bg-white hover:text-black">
+        <Button className="hidden md:block bg-[#A97C51] text-white px-6 py-3 text-xl font-medium hover:bg-[#A97C51]/90 rounded-none font-[family-name:var(--font-geist-sans)]">
           Login/Register
         </Button>
 
@@ -67,7 +71,7 @@ const Header = () => {
                 Services
               </Link>
               <div className="py-2">
-                <ContactDialog />
+                
               </div>
               <Button variant="outline" className="bg-transparent border border-white text-white hover:bg-white hover:text-black mt-4 w-full">
                 Login/Register
