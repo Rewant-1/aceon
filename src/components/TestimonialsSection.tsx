@@ -30,7 +30,7 @@ const testimonialData = [
 export function TestimonialsSection() {
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      <div className=" px-12">
         <div className="mb-12 text-center">
           <h2 className="text-[#A97C51] font-[family-name:var(--font-playfair-display)] text-4xl sm:text-5xl md:text-6xl font-medium mb-4">
             Why Homeowners Love Us
@@ -41,32 +41,34 @@ export function TestimonialsSection() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  mx-auto">
           {testimonialData.map((testimonial) => (
-            <div key={testimonial.id} className="bg-[#A49A87] rounded-2xl overflow-hidden w-full h-[330px]">
-              {/* Image Container */}
-              <div className="relative h-[200px] w-full">
-                <Image
-                  src={testimonial.image}
-                  alt={`${testimonial.name} testimonial`}
-                  fill
-                  className="object-cover"
-                />
-                {/* Gradient overlay with names */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/70 to-transparent">
-                  <div className="absolute bottom-4 left-0 right-0 text-center">
-                    <h3 className="text-white text-xl font-semibold mb-1">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-white text-sm">
-                      {testimonial.location}
-                    </p>
+            <div key={testimonial.id} className="bg-[#A49A87] rounded-2xl overflow-hidden w-full h-[350px]">
+              {/* Image Container - At top with padding */}
+              <div className="relative h-[220px] w-full p-4">
+                <div className="relative h-full w-full rounded-xl overflow-hidden">
+                  <Image
+                    src={testimonial.image}
+                    alt={`${testimonial.name} testimonial`}
+                    fill
+                    className="object-cover"
+                  />
+                  {/* Gradient overlay with names */}
+                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/70 to-transparent">
+                    <div className="absolute bottom-4 left-0 right-0 text-center">
+                      <h3 className="text-white text-xl font-semibold mb-1">
+                        {testimonial.name}
+                      </h3>
+                      <p className="text-white text-sm">
+                        {testimonial.location}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Review Content */}
-              <div className="p-6 flex items-center justify-center h-[130px]">
+              {/* Review Content - At bottom */}
+              <div className="p-6 flex items-center justify-center h-[110px]">
                 <p className="text-[#E7E4E4] text-center text-base leading-relaxed">
                   {testimonial.review}
                 </p>

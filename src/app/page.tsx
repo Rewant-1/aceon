@@ -6,6 +6,7 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { PartnersSection } from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 import { Separator } from "@/components/ui/separator";
+import { WhyUs } from "@/components/WhyUs";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Separator className="my-0" />
       <InspirationSection />
       <Separator className="my-0" />
+      <WhyUs />
       <Separator className="my-0" />
       <TestimonialsSection />
       <Separator className="my-0" />
