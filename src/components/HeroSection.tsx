@@ -1,88 +1,141 @@
+"use client";
 import Image from 'next/image'
 import { Instagram, Facebook, Twitter } from 'lucide-react'
-import Link from 'next/link'
-import { Button } from "@/components/ui/button"
 
-const ServiceCard = () => {
+// ========== TYPES & INTERFACES ==========
+interface ButtonProps {
+  children: React.ReactNode
+  className?: string
+  onClick?: () => void
+}
+
+// ========== COMPONENTS ==========
+
+// Button Component
+const Button: React.FC<ButtonProps> = ({ children, className, onClick }) => {
   return (
-    <div className="bg-primary/10 backdrop-blur-sm rounded-lg px-4 sm:px-6 py-4 text-white flex flex-col sm:flex-row items-start sm:space-x-4 space-y-4 sm:space-y-0 mt-8 md:mt-0">
-      <Image src="/card.png" alt="Aceon Logo" width={60} height={60} className="flex-shrink-0" />
-      <div className="flex flex-col space-y-2">
-        <h3 className="text-xl font-bold">Furniture Design</h3>
-        <p className="text-white/80 text-sm sm:text-base">Custom furniture solutions for your home or office — stylish, functional, and within your budget. Serving Varanasi with premium designs, on time.</p>
-        <p className="text-accent text-lg font-semibold">Style Within Your ₹ Budget</p>
+    <button
+      onClick={onClick}
+      className={`rounded-lg px-6 py-3 font-medium transition-all duration-300 hover:scale-105 ${className}`}
+    >
+      {children}
+    </button>
+  )
+}
+
+// Service Card Component
+const ServiceCard: React.FC = () => {
+  return (
+    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white border border-white/20 shadow-2xl">
+      <div className="flex items-start space-x-4">
+        <div className="flex-shrink-0">
+          <Image
+            src="/card.png"
+            alt="Furniture Design"
+            width={142}
+            height={163}
+            className="object-contain rounded-2xl"
+          />
+        </div>
+        <div className="flex-1">
+          <h3 className="text-xl font-bold mb-2 font-[family-name:var(--font-playfair-display)]">
+            Furniture Design
+          </h3>
+          <p className="text-white/90 text-sm leading-relaxed mb-3">
+            "Custom furniture solutions for your home or office — stylish, functional, and within your budget. Serving Varanasi with premium designs, on time."
+          </p>
+          <p className="text-[#A97C51] text-lg font-semibold font-[family-name:var(--font-inter)]">
+            Style Within Your ₹ Budget
+          </p>
+        </div>
       </div>
     </div>
   )
 }
 
-const HeroSection = () => {
+// Hero Section Component
+const HeroSectionComponent: React.FC = () => {
   return (
     <section className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <div className="relative w-full h-full">
-          <Image
-            src="/bg.png" 
-            alt="Modern living room interior"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-black/40" />
+        <Image
+          src="/bg.png"
+          alt="Modern living room interior"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      {/* Social Icons - Right Side */}
-      <div className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 flex flex-col space-y-3 sm:space-y-4 z-40">
-        <a href="#" title="Instagram" className="w-9 h-9 sm:w-10 sm:h-10 bg-[#A97C51]/54 rounded-full flex items-center justify-center hover:bg-[#A97C51]/70 transition-colors">
-          <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-        </a>
-        <a href="#" title="Facebook" className="w-9 h-9 sm:w-10 sm:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
-          <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-        </a>
-        <a href="#" title="Twitter" className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-          <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-        </a>
+      {/* Social Icons */}
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 z-40">
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-2xl">
+          <div className="flex flex-col space-y-4">
+            <a
+              href="#"
+              title="Instagram"
+              className="w-12 h-12 bg-[#A97C51] rounded-full flex items-center justify-center hover:bg-[#A97C51]/80 transition-all duration-300 hover:scale-110 shadow-lg"
+            >
+              <Instagram className="w-5 h-5 text-white" />
+            </a>
+            <a
+              href="#"
+              title="Facebook"
+              className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 hover:scale-110 shadow-lg"
+            >
+              <Facebook className="w-5 h-5 text-white" />
+            </a>
+            <a
+              href="#"
+              title="Twitter"
+              className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 hover:scale-110 shadow-lg"
+            >
+              <Twitter className="w-5 h-5 text-white" />
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-30 container-custom pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 min-h-screen flex items-center">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center w-full">
-          {/* Left Content */}
-          <div className="text-white space-y-4 sm:space-y-6 order-2 lg:order-1">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-[90px] font-[family-name:var(--font-playfair-display)]">
-              creating comfort <span className="text-accent">with style</span>
-            </h1>
-            <p className="text-xl sm:text-2xl md:text-2xl font-normal text-white font-[family-name:var(--font-prata)] max-w-xl leading-normal">
-              Design smart, live smart, and always choose Aceon for interiors
-            </p>
-            <p className="text-sm sm:text-base text-white/70 max-w-lg font-[family-name:var(--font-prata)]">
-              From cozy corners to luxury living, explore designs that match your taste.
-            </p>
+      <div className="relative z-30 container mx-auto px-4 py-20 min-h-screen flex items-center">
+        <div className="grid lg:grid-cols-2 gap-12 xl:gap-16 items-center w-full max-w-7xl mx-auto">
+          {/* Left Text Content */}
+          <div className="text-white space-y-8">
+            <div className="space-y-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight font-[family-name:var(--font-playfair-display)]">
+                creating comfort{' '}
+                <span className="text-[#fff] block">with style</span>
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl font-light text-white/90 max-w-xl leading-relaxed font-[family-name:var(--font-prata)]">
+                Design smart, live smart, and always choose Aceon for interiors
+              </p>
+            </div>
+           
             <div className="flex flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
-              <Button className="bg-[#A97C51] hover:bg-[#A97C51]/90 text-white px-6 py-3 rounded-lg text-lg sm:text-xl font-medium font-[family-name:var(--font-inter)] border-0 h-[52px] w-[156px]">
+              <Button className="bg-[#A97C51] hover:bg-[#A97C51]/90 text-white border-0 h-[52px] w-[156px] text-lg sm:text-xl font-inter">
                 Get Started
               </Button>
-              <Button className="bg-transparent hover:bg-white/10 text-[#DCDCDC] px-6 py-3 rounded-lg text-lg sm:text-xl font-medium font-[family-name:var(--font-inter)] border border-[#DCDCDC] h-[52px] w-[156px]">
+              <Button className="bg-transparent hover:bg-white/10 text-[#DCDCDC] border border-[#DCDCDC] h-[52px] w-[156px] text-lg sm:text-xl font-inter">
                 Contact Us
               </Button>
             </div>
           </div>
-          
-          {/* Right Content */}
-          <div className="relative order-1 lg:order-2">
-            <ServiceCard />
+
+          {/* Right Card Content */}
+          <div className="absolute bottom-8 right-8 z-30">
+            <div className="w-140 max-w-screen-md">
+              <ServiceCard />
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Resolution Indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-        
       </div>
     </section>
   )
 }
 
-export default HeroSection
+// ========== MAIN COMPONENT ==========
+export default function HeroSection() {
+  return <HeroSectionComponent />
+}

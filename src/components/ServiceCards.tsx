@@ -5,8 +5,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Button } from "@/components/ui/button"
 
@@ -27,7 +25,7 @@ const serviceData: ServiceCardData[] = [
   {
     id: "full-interior-bedroom",
     title: "Full Interior",
-    description: "Aceon Interio offers complete interior solutions tailored to your budget and space. Whether it's a shop, villa, hotel, restaurant, or showroom, we design with precision and style. Experience innovative space management and modern aesthetics, all under one roof. Transform your space beautifully and affordably with Aceon Interio.",
+    description: "  Aceon Interio offers complete interior solutions tailored to your budget and space. Whether it's a shop, villa, hotel, restaurant, or showroom, we design with precision and style. Experience innovative space management and modern aesthetics, all under one roof. Transform your space beautifully and affordably with Aceon Interio.",
     image: "/interior.png",
     alt: "Modern bedroom with tropical design elements and natural lighting",
     badges: ["Complete Solution", "Custom Design", "Budget Friendly"],
@@ -37,7 +35,7 @@ const serviceData: ServiceCardData[] = [
   {
     id: "full-interior-kitchen",
     title: "Full Interior",
-    description: "Aceon Interio offers complete interior solutions tailored to your budget and space. Whether it's a shop, villa, hotel, restaurant, or showroom, we design with precision and style. Experience innovative space management and modern aesthetics, all under one roof. Transform your space beautifully and affordably with Aceon Interio.",
+    description: "  Aceon Interio offers complete interior solutions tailored to your budget and space. Whether it's a shop, villa, hotel, restaurant, or showroom, we design with precision and style. Experience innovative space management and modern aesthetics, all under one roof. Transform your space beautifully and affordably with Aceon Interio.",
     image: "/kitchen.png",
     alt: "Contemporary modular kitchen with modern appliances and island",
     badges: ["Modern Design", "Space Efficient", "Premium Materials"],
@@ -47,7 +45,7 @@ const serviceData: ServiceCardData[] = [
   {
     id: "full-interior-wardrobe",
     title: "Full Interior",
-    description: "Aceon Interio offers complete interior solutions tailored to your budget and space. Whether it's a shop, villa, hotel, restaurant, or showroom, we design with precision and style. Experience innovative space management and modern aesthetics, all under one roof. Transform your space beautifully and affordably with Aceon Interio.",
+    description: "  Aceon Interio offers complete interior solutions tailored to your budget and space. Whether it's a shop, villa, hotel, restaurant, or showroom, we design with precision and style. Experience innovative space management and modern aesthetics, all under one roof. Transform your space beautifully and affordably with Aceon Interio.",
     image: "/wardrobe.png",
     alt: "Luxurious walk-in wardrobe with organized storage solutions",
     badges: ["Custom Storage", "Luxury Finish", "Space Saving"],
@@ -62,7 +60,7 @@ const ServiceCard: React.FC<{ service: ServiceCardData; priority?: boolean }> = 
   priority = false
 }) => {
   return (
-    <Card className="group cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl w-full max-w-[640px] h-[640px] border-0 shadow-xl overflow-hidden bg-gradient-to-b from-[#B5A894] to-[#A49A87] rounded-[20px] focus-within:ring-2 focus-within:ring-[#A97C51] focus-within:ring-offset-2">
+    <Card className="group cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl w-full max-w-[640px] h-[620px] border-0 shadow-xl overflow-hidden bg-gradient-to-b from-[#B5A894] to-[#A49A87] rounded-[20px] focus-within:ring-2 focus-within:ring-[#A97C51] focus-within:ring-offset-2">
       <CardContent className="p-0 h-full flex flex-col">
         {/* Image Section with expanded spacing */}
         <div className="relative h-[320px] w-full overflow-hidden rounded-t-[20px] px-4 -pt-3">
@@ -80,16 +78,16 @@ const ServiceCard: React.FC<{ service: ServiceCardData; priority?: boolean }> = 
         </div>
 
         {/* Content Section */}
-        <div className="p-6 flex-grow flex flex-col justify-between">
+        <div className="p-1 flex-grow flex flex-col justify-between">
           {/* Title */}
-          <div className="text-center mb-6">
+          <div className="text-center mb-1">
             <h3 className="text-[#F7F7F7] text-3xl sm:text-4xl font-normal font-[family-name:var(--font-prata)] leading-tight mb-2 transition-colors duration-300 group-hover:text-[#FFF8E7]">
               {service.title}
             </h3>
           </div>
 
           {/* Description */}
-          <div className="flex-grow flex items-center mb-8">
+          <div className="flex-grow flex items-center mb-15">
             <p className="text-[#F3F3F3] text-xl leading-[22px] font-[family-name:var(--font-inter)] text-center font-light tracking-normal line-clamp-6">
               {service.description}
             </p>
@@ -133,7 +131,7 @@ export function ServiceCards() {
 
   return (
     <section className="py-16 md:py-20 bg-white" aria-labelledby="services-heading">
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto px-1 max-w-10xl">
         {/* Header */}
         <div className="mb-12 text-center">
           <h2

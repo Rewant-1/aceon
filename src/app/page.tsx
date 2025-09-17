@@ -12,20 +12,34 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <HeroSection />
+      <section id="hero">
+        <HeroSection />
+      </section>
       <Separator className="my-0" />
-      <ServiceCards />
+     
+      <section id="services">
+        <ServiceCards />
+      </section>
       <Separator className="my-0" />
-      <InspirationSection />
+      <section id="inspiration">
+        <InspirationSection />
+      </section>
       <Separator className="my-0" />
-      <WhyUs />
+      <section id="why-us">
+        <WhyUs />
+      </section>
       <Separator className="my-0" />
-      <TestimonialsSection />
+      <section id="testimonials">
+        <TestimonialsSection />
+      </section>
       <Separator className="my-0" />
-      <PartnersSection />
+      <section id="partners">
+        <PartnersSection />
+      </section>
       <Separator className="my-0" />
-    
-      <Footer />
+      <section id="contact">
+        <Footer />
+      </section>
     </main>
   );
 }

@@ -12,6 +12,13 @@ import {
 } from "@/components/ui/sheet";
 
 const Header = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4">
       <div className="container-custom flex items-center justify-between">
@@ -26,22 +33,34 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-          <Link href="/" className="text-[#F7F7F7] bg-[rgba(169,124,81,0.54)] px-4 py-2 rounded-lg font-normal text-base hover:bg-[rgba(169,124,81,0.70)] transition-colors font-[family-name:var(--font-inter)]">
+          <button
+            onClick={() => scrollToSection('hero')}
+            className="text-[#F7F7F7] bg-[rgba(169,124,81,0.54)] px-4 py-2 rounded-lg font-normal text-base hover:bg-[rgba(169,124,81,0.70)] transition-colors font-[family-name:var(--font-inter)]"
+          >
             Home
-          </Link>
-          <Link href="/services" className="text-white/90 font-normal text-base hover:text-accent transition-colors font-[family-name:var(--font-geist-sans)]">
+          </button>
+          <button
+            onClick={() => scrollToSection('services')}
+            className="text-white/90 font-normal text-base hover:text-accent transition-colors font-[family-name:var(--font-geist-sans)]"
+          >
             Services
-          </Link>
-          <Link href="/about" className="text-white/90 font-normal text-base hover:text-accent transition-colors font-[family-name:var(--font-geist-sans)]">
+          </button>
+          <button
+            onClick={() => scrollToSection('inspiration')}
+            className="text-white/90 font-normal text-base hover:text-accent transition-colors font-[family-name:var(--font-geist-sans)]"
+          >
             About
-          </Link>
-          <Link href="/contact" className="text-white/90 font-normal text-base hover:text-accent transition-colors font-[family-name:var(--font-geist-sans)]">
+          </button>
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="text-white/90 font-normal text-base hover:text-accent transition-colors font-[family-name:var(--font-geist-sans)]"
+          >
             Contact
-          </Link>
+          </button>
         </nav>
 
         {/* Desktop CTA Button */}
-        <Button className="hidden md:block bg-[#A97C51] text-white px-6 py-3 text-xl font-medium hover:bg-[#A97C51]/90 rounded-none font-[family-name:var(--font-geist-sans)]">
+        <Button className="hidden md:block bg-[#A97C51] text-white px-6 py-1 text-xl font-medium hover:bg-[#A97C51]/90 rounded-3xl font-[family-name:var(--font-geist-sans)]">
           Login/Register
         </Button>
 
@@ -58,20 +77,20 @@ const Header = () => {
               <SheetTitle className="text-white text-xl">Menu</SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col space-y-4">
-              <Link
-                href="/about"
-                className="text-accent font-medium text-lg hover:text-accent/80 transition-colors py-2 border-b border-white/10"
+              <button
+                onClick={() => scrollToSection('inspiration')}
+                className="text-accent font-medium text-lg hover:text-accent/80 transition-colors py-2 border-b border-white/10 text-left"
               >
                 About
-              </Link>
-              <Link
-                href="/services"
-                className="text-white font-medium text-lg hover:text-accent transition-colors py-2 border-b border-white/10"
+              </button>
+              <button
+                onClick={() => scrollToSection('services')}
+                className="text-white font-medium text-lg hover:text-accent transition-colors py-2 border-b border-white/10 text-left"
               >
                 Services
-              </Link>
+              </button>
               <div className="py-2">
-                
+
               </div>
               <Button variant="outline" className="bg-transparent border border-white text-white hover:bg-white hover:text-black mt-4 w-full">
                 Login/Register
