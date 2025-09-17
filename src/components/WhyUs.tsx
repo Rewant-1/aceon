@@ -1,14 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface Partner {
-  id: number;
-  name: string;
-  logo: string;
-}
-
-
-
 export function WhyUs() {
   return (
     <section className="py-8 sm:py-10 md:py-16 bg-white">

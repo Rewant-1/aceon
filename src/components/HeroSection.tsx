@@ -42,7 +42,7 @@ const ServiceCard: React.FC = () => {
             Furniture Design
           </h3>
           <p className="text-white/90 text-sm leading-relaxed mb-3">
-            "Custom furniture solutions for your home or office — stylish, functional, and within your budget. Serving Varanasi with premium designs, on time."
+            &quot;Custom furniture solutions for your home or office — stylish, functional, and within your budget. Serving Varanasi with premium designs, on time.&quot;
           </p>
           <p className="text-[#A97C51] text-lg font-semibold font-[family-name:var(--font-inter)]">
             Style Within Your ₹ Budget

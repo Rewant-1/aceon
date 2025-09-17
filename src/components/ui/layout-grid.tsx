@@ -1,22 +1,33 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export const LayoutGrid = ({ cards }: { cards: any[] }) => {
+interface Card {
+  id: number;
+  className: string;
+  thumbnail: string;
+  badge?: string;
+  content?: React.ReactNode;
+}
 
-  // Helper function to extract text content from a React node (string, number, element or array)
-  const getText = (node: any): string => {
-    if (node == null) return "";
-    if (typeof node === "string" || typeof node === "number") return String(node);
-    if (Array.isArray(node)) return node.map(getText).join(" ");
-  if (React.isValidElement(node)) return getText((node as any).props?.children);
-    // fallback: try toString
-    try {
-      return String(node);
-    } catch {
-      return "";
-    }
+export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
+  // Helper function to get first child safely
+  const getFirstChild = (node: React.ReactNode): React.ReactNode => {
+    if (!node || !React.isValidElement(node)) return null;
+    const element = node as React.ReactElement<{ children?: React.ReactNode }>;
+    if (!element.props || !element.props.children) return null;
+    const children = React.Children.toArray(element.props.children);
+    return children.length > 0 ? children[0] : null;
+  };
+
+  // Helper function to get second child safely
+  const getSecondChild = (node: React.ReactNode): React.ReactNode => {
+    if (!node || !React.isValidElement(node)) return null;
+    const element = node as React.ReactElement<{ children?: React.ReactNode }>;
+    if (!element.props || !element.props.children) return null;
+    const children = React.Children.toArray(element.props.children);
+    return children.length > 1 ? children[1] : null;
   };
 
   return (
@@ -53,10 +64,10 @@ export const LayoutGrid = ({ cards }: { cards: any[] }) => {
             {card.content && (
               <div className="p-3">
                 <div className="text-primary font-semibold text-base">
-                  {getText(React.Children.toArray(card.content.props.children)[0])}
+                  {getFirstChild(card.content)}
                 </div>
                 <div className="text-sm text-gray-600">
-                  {getText(React.Children.toArray(card.content.props.children)[1])}
+                  {getSecondChild(card.content)}
                 </div>
               </div>
             )}
